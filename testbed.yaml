@@ -1,0 +1,15 @@
+testbed:
+  name: cml_testbed
+  credentials:
+    default:
+      username: admin
+      password: admin
+
+devices:
+  R1:
+    os: iosxe
+    type: router
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.10.20.171
