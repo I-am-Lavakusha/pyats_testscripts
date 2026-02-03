@@ -13,3 +13,10 @@ devices:
       cli:
         protocol: ssh
         ip: 10.10.20.171
+  R2:
+    os: iosxe
+    type: router
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.10.20.172
