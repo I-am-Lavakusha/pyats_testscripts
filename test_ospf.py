@@ -41,6 +41,25 @@ class TestOSPF(aetest.Testcase):
         else:
             self.failed("No OSPF routes found")
 
+    @aetest.test
+    def check_ospf_router_id_present(self, device):
+        """New: verify OSPF router-id line exists."""
+        output = device.execute('show ip ospf | include Router ID')
+        print(output)
+        if 'Router ID' in output:
+            self.passed("OSPF router-id is present")
+        else:
+            self.failed("OSPF router-id is not shown in output")
+
+    @aetest.test
+    def check_ospf_interface_brief(self, device):
+        """New: basic sanity on OSPF interfaces."""
+        output = device.execute('show ip ospf interface brief')
+        print(output)
+        if 'Interface' in output and 'Nbr' in output:
+            self.passed("OSPF interface brief output looks correct")
+        else:
+            self.failed("OSPF interface brief output does not look expected")
 
 class CommonCleanup(aetest.CommonCleanup):
     @aetest.subsection
