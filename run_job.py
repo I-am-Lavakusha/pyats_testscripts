@@ -6,3 +6,12 @@ def main(runtime):
         testbed=runtime.testbed
     )
 
+    run(
+        testscript='test_show_version.py',
+        testbed=runtime.testbed
+    )
+
+    run(
+        testscript='test_vlan.py',
+        testbed=runtime.testbed
+    )
